@@ -37,7 +37,8 @@ export async function POST(req: NextRequest) {
     const cleanText = text.replace(/\s+/g, ' ').trim();
 
     // Updated to Gemini 2.5 Flash
-    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+    // const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" }); -- 20 limits per day only
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-lite" }); // -- 1500 limits per day
 
     const prompt = `
       Context from the document:
